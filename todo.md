@@ -8,6 +8,7 @@
     - [ ] template selector
       - [ ] either as text input or select input
     - [ ] generate button
+      - [ ] validate the API call
     - [ ] download button
 - [ ] call API
   - [ ] access templates and store it into an array
