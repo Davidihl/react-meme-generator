@@ -1,4 +1,4 @@
-import { d, useState } from 'react';
+import { useState } from 'react';
 
 export default function Form(props) {
   const [topInput, setTopInput] = useState('');
@@ -11,6 +11,7 @@ export default function Form(props) {
         Meme template
         <input
           value={memeTemplate}
+          onFocus={(event) => (event.currentTarget.value = '')}
           onChange={(event) => {
             setMemeTemplate(event.currentTarget.value);
           }}
@@ -36,6 +37,7 @@ export default function Form(props) {
       </label>
       <div className="buttonDiv">
         <button
+          data-test-id="generate-meme"
           onClick={() => {
             props.setTopText(topInput);
             props.setBotText(botInput);
@@ -44,10 +46,9 @@ export default function Form(props) {
                 props.topText ? props.topText + ' ' : ''
               }${props.botText}`,
               src: `${props.url}${memeTemplate}/${
-                props.topText ? props.topText + '/' : '_/'
-              }${props.botText}`,
+                topInput ? topInput + '/' : '_/'
+              }${botInput}`,
             });
-            console.log(props.meme);
           }}
         >
           Generate
