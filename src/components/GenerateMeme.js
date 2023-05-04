@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import styles from './GenerateMeme.modules.css';
 
 export default function GenerateMeme(props) {
   const [topInput, setTopInput] = useState('');
   const [botInput, setBotInput] = useState('');
   const [templates, setTemplates] = useState([]);
+  const [meme, setMeme] = useState('');
 
   useEffect(() => {
     const getTemplates = async () => {
@@ -19,6 +21,26 @@ export default function GenerateMeme(props) {
 
   return (
     <form onSubmit={(event) => event.preventDefault()}>
+      <label>
+        Meme Finder
+        <select selected>
+          <option>Please select</option>
+          {templates.map((template) => {
+            return (
+              <option
+                key={`template-option-${template.id}`}
+                value={template.id}
+              >
+                {template.name}
+              </option>
+            );
+          })}
+        </select>
+      </label>
+      <label>
+        Meme template
+        <input />
+      </label>
       <label>
         Top text
         <input
