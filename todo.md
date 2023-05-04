@@ -1,4 +1,4 @@
-- [ ] create components folder
+- [x] create components folder
 - [ ] define components
   - [x] meme
     - [ ] img loading with default value/template

@@ -1,8 +1,3 @@
-export default function Meme() {
-  return (
-    <img
-      alt="Placeholder"
-      src="https://api.memegen.link/images/buzz/memes/memes_everywhere.gif"
-    />
-  );
+export default function Meme(props) {
+  return <img alt={props.alt} src={props.src} />;
 }
