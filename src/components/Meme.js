@@ -1,3 +1,3 @@
-export default function Meme(props) {
-  return <img alt={props.alt} src={props.src} />;
+export default function Meme(meme) {
+  return <img alt={meme.alt} src={meme.src} />;
 }

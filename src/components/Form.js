@@ -1,44 +1,20 @@
-import { useEffect, useState } from 'react';
+import { d, useState } from 'react';
 
 export default function Form(props) {
   const [topInput, setTopInput] = useState('');
   const [botInput, setBotInput] = useState('');
-  const [templates, setTemplates] = useState([]);
-  const [meme, setMeme] = useState('');
-
-  useEffect(() => {
-    const getTemplates = async () => {
-      const response = await fetch(props.url);
-      const templateObject = await response.json();
-      setTemplates(templateObject);
-    };
-
-    getTemplates()
-      .then(() => {})
-      .catch((err) => console.error(err));
-  }, [props.url]);
+  const [memeTemplate, setMemeTemplate] = useState('aag');
 
   return (
     <form onSubmit={(event) => event.preventDefault()}>
       <label>
-        Meme Finder
-        <select selected>
-          <option>Please select</option>
-          {templates.map((template) => {
-            return (
-              <option
-                key={`template-option-${template.id}`}
-                value={template.id}
-              >
-                {template.name}
-              </option>
-            );
-          })}
-        </select>
-      </label>
-      <label>
         Meme template
-        <input />
+        <input
+          value={memeTemplate}
+          onChange={(event) => {
+            setMemeTemplate(event.currentTarget.value);
+          }}
+        />
       </label>
       <label>
         Top text
@@ -62,8 +38,16 @@ export default function Form(props) {
         <button
           onClick={() => {
             props.setTopText(topInput);
-            console.log(templates);
             props.setBotText(botInput);
+            props.setMeme({
+              alt: `${memeTemplate} ${
+                props.topText ? props.topText + ' ' : ''
+              }${props.botText}`,
+              src: `${props.url}${memeTemplate}/${
+                props.topText ? props.topText + '/' : '_/'
+              }${props.botText}`,
+            });
+            console.log(props.meme);
           }}
         >
           Generate
@@ -74,8 +58,7 @@ export default function Form(props) {
       </div>
       <button
         onClick={() => {
-          console.log('debug');
-          console.log(templates);
+          console.log(props.meme);
         }}
       >
         GenerateMeme Debug

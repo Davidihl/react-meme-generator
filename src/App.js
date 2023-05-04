@@ -4,7 +4,7 @@ import Meme from './components/Meme';
 
 export default function App() {
   // Define global variables
-  const url = 'https://api.memegen.link/templates/';
+  const url = 'https://api.memegen.link/';
   // Define required useStates
   const [meme, setMeme] = useState({
     alt: 'Memes everwhere',
@@ -22,6 +22,7 @@ export default function App() {
         setTopText={setTopText}
         botText={botText}
         setBotText={setBotText}
+        setMeme={setMeme}
         url={url}
       />
       <div> It works</div>
@@ -29,6 +30,7 @@ export default function App() {
         onClick={() => {
           console.log(topText);
           console.log(botText);
+          console.log(meme);
         }}
       >
         App Debug
