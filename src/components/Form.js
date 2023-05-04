@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import styles from './GenerateMeme.modules.css';
 
-export default function GenerateMeme(props) {
+export default function Form(props) {
   const [topInput, setTopInput] = useState('');
   const [botInput, setBotInput] = useState('');
   const [templates, setTemplates] = useState([]);
@@ -59,16 +58,20 @@ export default function GenerateMeme(props) {
           onChange={(event) => setBotInput(event.currentTarget.value)}
         />
       </label>
-      <button
-        onClick={() => {
-          props.setTopText(topInput);
-          console.log(templates);
-          props.setBotText(botInput);
-        }}
-      >
-        Generate
-      </button>
-      <button>Download</button>
+      <div className="buttonDiv">
+        <button
+          onClick={() => {
+            props.setTopText(topInput);
+            console.log(templates);
+            props.setBotText(botInput);
+          }}
+        >
+          Generate
+        </button>
+        <button className="downloadBtn" id="hallo">
+          Download
+        </button>
+      </div>
       <button
         onClick={() => {
           console.log('debug');

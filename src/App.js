@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import GenerateMeme from './components/GenerateMeme';
+import Form from './components/Form';
 import Meme from './components/Meme';
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <>
       <Meme alt={meme.alt} src={meme.src} topText={topText} />
-      <GenerateMeme
+      <Form
         topText={topText}
         setTopText={setTopText}
         botText={botText}
