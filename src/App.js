@@ -1,3 +1,15 @@
+import GenerateMeme from './components/GenerateMeme';
+import Meme from './components/Meme';
+
 export default function App() {
-  return <div> It works</div>;
+  // Define required useStates
+
+  // Return
+  return (
+    <>
+      <Meme />
+      <GenerateMeme />
+      <div> It works</div>
+    </>
+  );
 }

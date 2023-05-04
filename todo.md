@@ -1,8 +1,8 @@
 - [ ] create components folder
 - [ ] define components
-  - [ ] meme
+  - [x] meme
     - [ ] img loading with default value/template
-  - [ ] form
+  - [x] form
     - [ ] top text
     - [ ] bot text
     - [ ] template selector
