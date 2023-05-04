@@ -1,0 +1,14 @@
+- [ ] create components folder
+- [ ] define components
+  - [ ] meme
+    - [ ] img loading with default value/template
+  - [ ] form
+    - [ ] top text
+    - [ ] bot text
+    - [ ] template selector
+      - [ ] either as text input or select input
+    - [ ] generate button
+    - [ ] download button
+- [ ] call API
+  - [ ] access templates and store it into an array
+  - [ ] load default template (hardcoded or with initial value based on template selector)
