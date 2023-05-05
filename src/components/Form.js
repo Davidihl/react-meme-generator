@@ -21,6 +21,19 @@ export default function Form(props) {
       .catch((err) => console.error(err));
   }, [props.url]);
 
+  function getValidUrl(topText, botText) {
+    if (topText) {
+      if (botText) {
+        return '/' + topText + '/' + botText;
+      }
+      return '/' + topText;
+    } else if (botText) {
+      return '/_/' + botText;
+    } else {
+      return '';
+    }
+  }
+
   return (
     <div>
       <form onSubmit={(event) => event.preventDefault()}>
@@ -112,12 +125,13 @@ export default function Form(props) {
               botText = botText.replace('?', '~q');
               botText = botText.replace('\\', '~b');
 
+              const validUrl = getValidUrl(topText, botText);
+              console.log(validUrl);
+
               // Lift up alt-text and img-src
               props.setMeme({
                 alt: `${memeTemplate} ${topText ? topText : ''} ${botText}`,
-                src: `${props.url}${memeTemplate}/${
-                  topText ? topText : '_'
-                }/${botText}.jpg`,
+                src: `${props.url}${memeTemplate}${validUrl}.jpg`,
               });
             }}
           >
