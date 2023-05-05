@@ -20,27 +20,42 @@ export default function Form(props) {
       .catch((err) => console.error(err));
   }, [props.url]);
 
+  function validateURL() {
+    console.log('it works');
+  }
+
   return (
     <div>
       <form onSubmit={(event) => event.preventDefault()}>
-        <label>
-          Meme finder
-          <select
-            onChange={(event) => setMemeTemplate(event.currentTarget.value)}
+        <div className={styles.labelSelect}>
+          <svg
+            className={styles.labelSelectArrow}
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 96 960 960"
+            width="24"
           >
-            <option>Please select</option>
-            {templates.map((template) => {
-              return (
-                <option
-                  key={`template-option-${template.id}`}
-                  value={template.id}
-                >
-                  {template.name}
-                </option>
-              );
-            })}
-          </select>
-        </label>
+            <path d="M480 684.077 267.692 471.769 296 443.461l184 184 184-184 28.308 28.308L480 684.077Z" />
+          </svg>
+          <label>
+            Meme finder
+            <select
+              onChange={(event) => setMemeTemplate(event.currentTarget.value)}
+            >
+              <option>Please select</option>
+              {templates.map((template) => {
+                return (
+                  <option
+                    key={`template-option-${template.id}`}
+                    value={template.id}
+                  >
+                    {template.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
         <label>
           Meme template
           <input
