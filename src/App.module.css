@@ -1,5 +1,6 @@
 .appContainer {
-  padding: 0 0 16px 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   width: 100%;
   min-height: 100vh;
   display: flex;
