@@ -1,15 +1,15 @@
 - [x] create components folder
-- [ ] define components
+- [x] define components
   - [x] meme
-    - [ ] img loading with default value/template
+    - [x] img loading with default value/template
   - [x] form
-    - [ ] top text
-    - [ ] bot text
-    - [ ] template selector
-      - [ ] either as text input or select input
-    - [ ] generate button
+    - [x] top text
+    - [x] bot text
+    - [x] template selector
+      - [x] either as text input or select input
+    - [x] generate button
       - [ ] validate the API call
-    - [ ] download button
-- [ ] call API
+    - [x] download button
+- [] call API
   - [ ] access templates and store it into an array
   - [ ] load default template (hardcoded or with initial value based on template selector)

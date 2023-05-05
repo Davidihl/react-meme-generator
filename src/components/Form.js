@@ -1,15 +1,46 @@
 import { saveAs } from 'file-saver';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Form.module.css';
 
 export default function Form(props) {
   const [topInput, setTopInput] = useState('');
   const [botInput, setBotInput] = useState('');
   const [memeTemplate, setMemeTemplate] = useState('aag');
+  const [templates, setTemplates] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch(props.url + 'templates');
+      const templateObjects = await response.json();
+      setTemplates(templateObjects);
+    }
+
+    fetchData()
+      .then(() => {})
+      .catch((err) => console.error(err));
+  }, [props.url]);
 
   return (
     <div>
       <form onSubmit={(event) => event.preventDefault()}>
+        <label>
+          Meme finder
+          <select
+            onChange={(event) => setMemeTemplate(event.currentTarget.value)}
+          >
+            <option>Please select</option>
+            {templates.map((template) => {
+              return (
+                <option
+                  key={`template-option-${template.id}`}
+                  value={template.id}
+                >
+                  {template.name}
+                </option>
+              );
+            })}
+          </select>
+        </label>
         <label>
           Meme template
           <input
