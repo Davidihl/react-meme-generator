@@ -17,16 +17,18 @@ export default function App() {
   // Return
   return (
     <div className={styles.appContainer}>
-      <Meme alt={meme.alt} src={meme.src} topText={topText} />
-      <Form
-        topText={topText}
-        setTopText={setTopText}
-        botText={botText}
-        setBotText={setBotText}
-        setMeme={setMeme}
-        meme={meme}
-        url={url}
-      />
+      <div className={styles.app}>
+        <Meme alt={meme.alt} src={meme.src} topText={topText} />
+        <Form
+          topText={topText}
+          setTopText={setTopText}
+          botText={botText}
+          setBotText={setBotText}
+          setMeme={setMeme}
+          meme={meme}
+          url={url}
+        />
+      </div>
     </div>
   );
 }

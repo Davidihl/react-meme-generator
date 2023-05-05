@@ -38,7 +38,7 @@ export default function Form(props) {
             onChange={(event) => setBotInput(event.currentTarget.value)}
           />
         </label>
-        <div className="buttonDiv">
+        <div className={styles.buttonDiv}>
           <button
             data-test-id="generate-meme"
             onClick={() => {
@@ -63,13 +63,6 @@ export default function Form(props) {
             Download
           </button>
         </div>
-        <button
-          onClick={() => {
-            console.log(props.meme);
-          }}
-        >
-          GenerateMeme Debug
-        </button>
       </form>
     </div>
   );
