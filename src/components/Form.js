@@ -20,10 +20,6 @@ export default function Form(props) {
       .catch((err) => console.error(err));
   }, [props.url]);
 
-  function validateURL() {
-    console.log('it works');
-  }
-
   return (
     <div>
       <form onSubmit={(event) => event.preventDefault()}>
@@ -88,15 +84,35 @@ export default function Form(props) {
           <button
             data-test-id="generate-meme"
             onClick={() => {
+              let topText = topInput;
+
+              topText = topText.replace('/', '~s');
+              topText = topText.replace(' ', '_');
+              topText = topText.replace('#', '~h');
+              topText = topText.replace('<', '~l');
+              topText = topText.replace('>', '~g');
+              topText = topText.replace('"', "'");
+              topText = topText.replace('?', '~q');
+              topText = topText.replace('\\', '~b');
+
+              let botText = botInput;
+
+              botText = botText.replace('/', '~s');
+              botText = botText.replace(' ', '_');
+              botText = botText.replace('#', '~h');
+              botText = botText.replace('<', '~l');
+              botText = botText.replace('>', '~g');
+              botText = botText.replace('"', "'");
+              botText = botText.replace('?', '~q');
+              botText = botText.replace('\\', '~b');
+
               props.setTopText(topInput);
               props.setBotText(botInput);
               props.setMeme({
-                alt: `${memeTemplate} ${
-                  props.topText ? props.topText + ' ' : ''
-                }${props.botText}`,
+                alt: `${memeTemplate} ${topText ? topText : ''} ${botText}`,
                 src: `${props.url}${memeTemplate}/${
-                  topInput ? topInput + '/' : '_/'
-                }${botInput}.jpg`,
+                  topText ? topText : '_'
+                }/${botText}.jpg`,
               });
             }}
           >
