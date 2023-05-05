@@ -1,6 +1,7 @@
 import styles from './Meme.module.css';
 
 export default function Meme(meme) {
+  // Show Image
   return (
     <img
       className={styles.meme}

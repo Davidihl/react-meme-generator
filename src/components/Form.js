@@ -8,6 +8,7 @@ export default function Form(props) {
   const [memeTemplate, setMemeTemplate] = useState('aag');
   const [templates, setTemplates] = useState([]);
 
+  // Fetch templates and store it into an array
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(props.url + 'templates');
@@ -23,6 +24,7 @@ export default function Form(props) {
   return (
     <div>
       <form onSubmit={(event) => event.preventDefault()}>
+        {/* Custom styled select */}
         <div className={styles.labelSelect}>
           <svg
             className={styles.labelSelectArrow}
@@ -35,10 +37,12 @@ export default function Form(props) {
           </svg>
           <label>
             Meme finder
+            {/* Update id string in input field below */}
             <select
               onChange={(event) => setMemeTemplate(event.currentTarget.value)}
             >
               <option>Please select</option>
+              {/* Map templates into options */}
               {templates.map((template) => {
                 return (
                   <option
@@ -52,8 +56,9 @@ export default function Form(props) {
             </select>
           </label>
         </div>
-        <label>
+        <label hidden>
           Meme template
+          {/* input fields for meme */}
           <input
             value={memeTemplate}
             onFocus={(event) => (event.currentTarget.value = '')}
@@ -84,6 +89,7 @@ export default function Form(props) {
           <button
             data-test-id="generate-meme"
             onClick={() => {
+              // Validate inputs
               let topText = topInput;
 
               topText = topText.replace('/', '~s');
@@ -106,8 +112,7 @@ export default function Form(props) {
               botText = botText.replace('?', '~q');
               botText = botText.replace('\\', '~b');
 
-              props.setTopText(topInput);
-              props.setBotText(botInput);
+              // Lift up alt-text and img-src
               props.setMeme({
                 alt: `${memeTemplate} ${topText ? topText : ''} ${botText}`,
                 src: `${props.url}${memeTemplate}/${
@@ -118,6 +123,7 @@ export default function Form(props) {
           >
             Generate
           </button>
+          {/* Download Button */}
           <button
             className={styles.downloadBtn}
             onClick={() => saveAs(props.meme.src, `${props.meme.alt}.jpg`)}
