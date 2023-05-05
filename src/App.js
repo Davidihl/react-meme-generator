@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './App.module.css';
 import Form from './components/Form';
 import Meme from './components/Meme';
 
@@ -15,7 +16,7 @@ export default function App() {
 
   // Return
   return (
-    <>
+    <div className={styles.appContainer}>
       <Meme alt={meme.alt} src={meme.src} topText={topText} />
       <Form
         topText={topText}
@@ -26,14 +27,6 @@ export default function App() {
         meme={meme}
         url={url}
       />
-      <div> It works</div>
-      <button
-        onClick={() => {
-          console.log(meme);
-        }}
-      >
-        App Debug
-      </button>
-    </>
+    </div>
   );
 }
