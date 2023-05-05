@@ -38,7 +38,20 @@
 
 @media (max-width: 420px) {
   .app {
+    padding: 8px;
     border-radius: 0;
     height: 100vh;
+    background-image: linear-gradient(
+      38deg,
+      rgb(180, 193, 193) 0%,
+      rgb(255, 255, 255) 100%
+    );
+    animation: bg-animation 15s infinite;
+  }
+
+  .appContainer {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    display: block;
   }
 }
