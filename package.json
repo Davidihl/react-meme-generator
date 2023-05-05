@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^13.2.1",
     "@upleveled/react-scripts": "5.0.5",
     "file-saver": "^2.0.5",
