@@ -1,3 +1,4 @@
+import { saveAs } from 'file-saver';
 import { useState } from 'react';
 
 export default function Form(props) {
@@ -47,13 +48,17 @@ export default function Form(props) {
               }${props.botText}`,
               src: `${props.url}${memeTemplate}/${
                 topInput ? topInput + '/' : '_/'
-              }${botInput}`,
+              }${botInput}.jpg`,
             });
           }}
         >
           Generate
         </button>
-        <button className="downloadBtn" id="hallo">
+        <button
+          className="downloadBtn"
+          id="hallo"
+          onClick={() => saveAs(props.meme.src, `${props.meme.alt}.jpg`)}
+        >
           Download
         </button>
       </div>

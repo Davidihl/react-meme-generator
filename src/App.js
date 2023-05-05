@@ -23,13 +23,12 @@ export default function App() {
         botText={botText}
         setBotText={setBotText}
         setMeme={setMeme}
+        meme={meme}
         url={url}
       />
       <div> It works</div>
       <button
         onClick={() => {
-          console.log(topText);
-          console.log(botText);
           console.log(meme);
         }}
       >
