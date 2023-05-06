@@ -105,26 +105,26 @@ export default function Form(props) {
               // Validate inputs
               let topText = topInput;
 
-              // topText = topText.replace('/', '~s');
-              // topText = topText.replace(' ', '_');
-              // topText = topText.replace('#', '~h');
-              // topText = topText.replace('<', '~l');
-              // topText = topText.replace('>', '~g');
-              // topText = topText.replace('"', "'");
-              // topText = topText.replace('?', '~q');
-              // topText = topText.replace('\\', '~b');
+              topText = topText.replace('/', '~s');
+              topText = topText.replace(' ', '_');
+              topText = topText.replace('#', '~h');
+              topText = topText.replace('<', '~l');
+              topText = topText.replace('>', '~g');
+              topText = topText.replace('"', "'");
+              topText = topText.replace('?', '~q');
+              topText = topText.replace('\\', '~b');
               topText = topText.toLocaleLowerCase();
 
               let botText = botInput;
 
-              // botText = botText.replace('/', '~s');
-              // botText = botText.replace(' ', '_');
-              // botText = botText.replace('#', '~h');
-              // botText = botText.replace('<', '~l');
-              // botText = botText.replace('>', '~g');
-              // botText = botText.replace('"', "'");
-              // botText = botText.replace('?', '~q');
-              // botText = botText.replace('\\', '~b');
+              botText = botText.replace('/', '~s');
+              botText = botText.replace(' ', '_');
+              botText = botText.replace('#', '~h');
+              botText = botText.replace('<', '~l');
+              botText = botText.replace('>', '~g');
+              botText = botText.replace('"', "'");
+              botText = botText.replace('?', '~q');
+              botText = botText.replace('\\', '~b');
               botText = botText.toLowerCase();
 
               const validUrl = getValidUrl(topText, botText);
@@ -133,7 +133,7 @@ export default function Form(props) {
               // Lift up alt-text and img-src
               props.setMeme({
                 alt: `${memeTemplate} ${topText ? topText : ''} ${botText}`,
-                src: `${props.url}${memeTemplate}${validUrl}.jpg`,
+                src: `${props.url}images/${memeTemplate}${validUrl}.jpg`,
               });
             }}
           >
