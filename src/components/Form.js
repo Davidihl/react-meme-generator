@@ -113,6 +113,7 @@ export default function Form(props) {
               topText = topText.replace('"', "'");
               topText = topText.replace('?', '~q');
               topText = topText.replace('\\', '~b');
+              topText = topText.toLocaleLowerCase();
 
               let botText = botInput;
 
@@ -124,6 +125,7 @@ export default function Form(props) {
               botText = botText.replace('"', "'");
               botText = botText.replace('?', '~q');
               botText = botText.replace('\\', '~b');
+              botText = botText.toLowerCase();
 
               const validUrl = getValidUrl(topText, botText);
               console.log(validUrl);
