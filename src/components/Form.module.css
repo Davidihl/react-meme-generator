@@ -95,7 +95,7 @@ select:focus {
   border-color: rgba(34, 193, 195, 1);
 }
 
-@media (max-width: 420px) {
+@media screen and (max-width: 420px) {
   .buttonDiv {
     flex-direction: column;
     align-items: center;
