@@ -8,7 +8,7 @@ export default function App() {
   const url = 'https://api.memegen.link/';
   // Define required useStates
   const [meme, setMeme] = useState({
-    alt: 'Memes everwhere',
+    alt: 'Memes everywhere',
     src: 'https://api.memegen.link/images/buzz/memes/memes_everywhere.gif',
   });
   const [topText, setTopText] = useState('');
