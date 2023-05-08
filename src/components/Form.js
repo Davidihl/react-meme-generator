@@ -128,7 +128,6 @@ export default function Form(props) {
               botText = botText.toLowerCase();
 
               const validUrl = getValidUrl(topText, botText);
-              console.log(validUrl);
 
               // Lift up alt-text and img-src
               props.setMeme({

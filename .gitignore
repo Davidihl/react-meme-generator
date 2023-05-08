@@ -24,3 +24,5 @@ yarn-error.log*
 
 .eslintcache
 *.tsbuildinfo
+
+/x_backup
