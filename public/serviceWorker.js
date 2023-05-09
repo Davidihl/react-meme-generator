@@ -31,7 +31,7 @@ this.addEventListener('install', (event) => {
 this.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then(() => {
-      return fetch(event.request).catch(() => caches.match('index.html'));
+      return fetch(event.request).catch(() => caches.match('offline.html'));
     }),
   );
 });
